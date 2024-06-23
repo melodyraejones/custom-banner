@@ -1,0 +1,36 @@
+/* Container for the moving banner */
+.custom-banner-container {
+  position: fixed; /* Keep the banner fixed at the top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden; /* Hide overflow to create a smooth scroll effect */
+  background-color: #000; /* Default background color */
+  color: #fff; /* Default text color */
+  text-align: center;
+  z-index: 9999; /* Ensure it stays on top */
+  padding: 0.4rem 0;
+}
+
+/* Moving banner text */
+.custom-banner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-banner 20s linear infinite; /* Adjust speed as needed */
+}
+
+/* Animation keyframes */
+@keyframes scroll-banner {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  50% {
+    transform: translateX(-100%); /* Move off-screen to the left */
+  }
+  50.01% {
+    transform: translateX(-100%); /* Fix position to avoid jitter */
+  }
+  100% {
+    transform: translateX(100%); /* Move back off-screen to the right */
+  }
+}
